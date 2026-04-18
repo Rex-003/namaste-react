@@ -41,3 +41,21 @@
 
     As we know that componentDidMount is used to call the API's, but there is a specific reason behind using the componentDidMount for calling the API's, As we know react works on the priciple of Load-->Render-->API call-->Render   So from this we can easily understand that the  Api call should be done after the rendering for the non API part to ensure smooth UX for the user.
     and we know that the ComponentDidMount is called after it has been successfully mounted....so after rendering the non API part it calls the API and then fill the data by the api...
+
+# What is the react common life cycle After we call an API ?
+
+    Now here comes the most important part
+    Mounting Phase {
+        Step 1 --> The Constructor is called.
+        Step 2 --> The Rendering of the component is started with the dummy data first
+        Step 3 --> Then the DOM is actually updated in the form of batch
+        Step 4 --> The ComponentDidMount is called
+    }
+    Updating Phase {
+        Step 1 --> If there is any state updates using setState or props or force update, then the rendering of the component starts
+        Step 2 --> Then the DOM is udated with the actual api values or props values
+        Step 3 --> Then the ComponentDidUpdate is called, another new function for checking if did update or not
+    }
+    UnMounting Phase {
+        Step 1 --> this is called when the component is unmounted means the we switch to another page, this clarifies that mounting measn showing the page on the UI where as unmounting means not showing it on the screen.
+    }
