@@ -1,11 +1,13 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // creating header
 const HeaderComponent = () => {
   // Now we wil create a state varaible for login and logout button.
   const [log, setLog] = useState("Login");
+  const onlineStatus = useOnlineStatus();
   return (
     <div className="header">
       <div className="app-logo">
@@ -13,6 +15,7 @@ const HeaderComponent = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to={"/"}>Home</Link>
           </li>
